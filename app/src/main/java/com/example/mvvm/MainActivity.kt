@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         // viewModel初期化
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.onClickButton(binding.editTextText.text.toString())
         }
 
+        //  LiveDataを読み込み反映
         viewModel.textViewStr.observe(this, Observer {
             binding.textView.text = it
         })
